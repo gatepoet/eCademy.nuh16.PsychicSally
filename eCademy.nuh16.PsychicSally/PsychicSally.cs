@@ -18,6 +18,7 @@ namespace eCademy.nuh16.PsychicSally
 
         private int numberToGuess;
         private int guesses;
+        private int max = 100;
         private DateTime startTime;
         private DateTime endTime;
         private bool guessedCorrectly;
@@ -36,7 +37,7 @@ namespace eCademy.nuh16.PsychicSally
         public void Start()
         {
             startTime = DateTime.Now;
-            numberToGuess = random.Next(0, 100);
+            numberToGuess = random.Next(0, max);
             guessedCorrectly = false;
             for (var i = 0; i < MaxTries; i++)
             {
