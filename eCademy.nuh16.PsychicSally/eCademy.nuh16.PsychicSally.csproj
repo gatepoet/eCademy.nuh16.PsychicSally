@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileStorage.cs" />
+    <Compile Include="HighScore.cs" />
+    <Compile Include="IHighScoreStorage.cs" />
+    <Compile Include="InMemoryStorage.cs" />
     <Compile Include="PsychicSally.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="Scoring.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

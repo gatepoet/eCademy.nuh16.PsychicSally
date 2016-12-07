@@ -21,12 +21,16 @@ namespace eCademy.nuh16.PsychicSally
         private DateTime startTime;
         private DateTime endTime;
         private bool guessedCorrectly;
+        private HighScore highScore;
 
         public int MaxTries { get; set; }
 
         public PsychicSally()
         {
+            var storage = new InMemoryStorage();
+            //var storage = new FileStorage("highscore.dat");
             MaxTries = 10;
+            highScore = new HighScore(storage);
         }
 
         public void Start()
@@ -72,11 +76,24 @@ namespace eCademy.nuh16.PsychicSally
 
         private void HandleCorrectGuess()
         {
-            var totalTime = endTime.Subtract(startTime).TotalSeconds;
+            var score = GetScore();
             Console.WriteLine(
                 "Gratulerer! Du gjettet riktig på {0} forsøk og brukte {1} sekunder",
-                guesses,
-                totalTime);
+                score.Guesses,
+                score.TotalTime);
+
+
+            //TODO: Add to highscore if good enough
+            highScore.AddScore("Test", score);
+            highScore.Print();
+        }
+
+        private Score GetScore()
+        {
+            var score = new Score();
+
+            //TODO: Calculate total time and create Score object
+            return score;
         }
 
         private void Stop()
